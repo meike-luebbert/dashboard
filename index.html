@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Setting-Dashboard – Astrid Reitz</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { --navy:#1F3864; --navy-light:#e8edf5; --accent:#B7472A; --grey:#666; --border:#dfe3ea; }
+  * { box-sizing: border-box; }
+  body { font-family: Arial, Helvetica, sans-serif; background:#f5f6f8; color:#1a1a1a; margin:0; padding:32px 24px 64px; }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  h1 { color: var(--navy); font-size: 24px; margin-bottom: 4px; }
+  .meta { color: var(--grey); font-size: 13px; margin-bottom: 28px; }
+  h2 { color: var(--navy); font-size: 16px; border-bottom: 2px solid var(--navy); padding-bottom: 6px; margin-top: 40px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; background: #fff; }
+  th, td { padding: 8px 10px; border-bottom: 1px solid var(--border); text-align: left; }
+  th { background: var(--navy); color: #fff; font-weight: bold; font-size: 12px; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.total td { font-weight: bold; background: var(--navy-light); }
+  td.name { font-weight: bold; }
+  .barwrap { display:inline-block; width:60px; height:8px; background:#eee; margin-left:8px; vertical-align:middle; }
+  .bar { height:8px; }
+  .kpi-row { display:flex; gap:16px; flex-wrap:wrap; margin-top: 12px; }
+  .kpi { background:#fff; border:1px solid var(--border); border-radius:6px; padding:14px 18px; min-width:150px; flex:1; }
+  .kpi .value { font-size: 26px; font-weight:bold; color: var(--navy); }
+  .kpi .label { font-size: 12px; color: var(--grey); margin-top:2px; }
+  .empty { color: var(--grey); text-align:center; }
+  .col2 { display:grid; grid-template-columns: 1fr 1fr; gap:24px; }
+  .footnote { font-size:12px; color:var(--grey); margin-top:8px; line-height:1.4; }
+  @media (max-width: 700px) { .col2 { grid-template-columns: 1fr; } table { font-size: 11px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Setting-Dashboard – Dr. Astrid Reitz</h1>
+  <div class="meta">Stand: 04.08.2026 14:54 &middot; Datenquelle: Setting-Liste (Google Sheet, Katrin) &middot; Tabs: Nicole, Patricia</div>
+
+  <div class="kpi-row">
+    <div class="kpi"><div class="value">83</div><div class="label">Calls gesamt</div></div>
+    <div class="kpi"><div class="value">5</div><div class="label">Termine gesamt (Webinar+Strategie+Sprechstunde)</div></div>
+    <div class="kpi"><div class="value">14</div><div class="label">Nicht qualifiziert</div></div>
+  </div>
+
+  <h2>Ergebnisse pro Setter</h2>
+  <table>
+    <tr><th>Setter</th><th>Calls</th><th>Webinar-Zusage</th><th>Strategiegespräch</th><th>Sprechstunde</th><th>Nicht qualifiziert</th></tr>
+    
+        <tr>
+          <td class="name">Nicole</td>
+          <td class="num">54</td>
+          <td class="num">0</td>
+          <td class="num">0</td>
+          <td class="num">2</td>
+          <td class="num">10</td>
+        </tr>
+        <tr>
+          <td class="name">Patricia</td>
+          <td class="num">29</td>
+          <td class="num">0</td>
+          <td class="num">1</td>
+          <td class="num">2</td>
+          <td class="num">4</td>
+        </tr>
+        <tr class="total">
+          <td class="name">Gesamt</td>
+          <td class="num">83</td>
+          <td class="num">0</td>
+          <td class="num">1</td>
+          <td class="num">4</td>
+          <td class="num">14</td>
+        </tr>
+  </table>
+
+  <h2>Calls pro Tag &amp; pro Setter</h2>
+  <table>
+    <tr><th>Datum</th><th>Nicole</th><th>Patricia</th><th>Gesamt</th></tr>
+    <tr><td>03.08.2026</td><td class="num">19</td><td class="num">5</td><td class="num"><strong>24</strong></td></tr><tr><td>04.08.2026</td><td class="num">35</td><td class="num">24</td><td class="num"><strong>59</strong></td></tr><tr class="total"><td>Gesamt</td><td class="num"><strong>54</strong></td><td class="num"><strong>29</strong></td><td class="num"><strong>83</strong></td></tr>
+  </table>
+
+  <div class="col2">
+    <div>
+      <h2>Absagegründe – BANT-Spalte (15 gesamt)</h2>
+      <table>
+        <tr><th>Grund</th><th>Anzahl</th><th></th></tr>
+        <tr><td>Kein Bedarf</td><td class="num">12</td><td><div class="barwrap"><div class="bar" style="width:100%;background:#B7472A"></div></div></td></tr><tr><td>Kein Interesse</td><td class="num">2</td><td><div class="barwrap"><div class="bar" style="width:17%;background:#B7472A"></div></div></td></tr><tr><td>Kein Budget</td><td class="num">1</td><td><div class="barwrap"><div class="bar" style="width:8%;background:#B7472A"></div></div></td></tr>
+      </table>
+    </div>
+    <div>
+      <h2>Absagegründe – Pferd (9, aus Notiz erkannt)</h2>
+      <table>
+        <tr><th>Kategorie</th><th>Anzahl</th><th></th></tr>
+        <tr><td>Pferd gesund/symptomfrei</td><td class="num">7</td><td><div class="barwrap"><div class="bar" style="width:100%;background:#B7472A"></div></div></td></tr><tr><td>Pferd verstorben/eingeschläfert</td><td class="num">2</td><td><div class="barwrap"><div class="bar" style="width:29%;background:#B7472A"></div></div></td></tr>
+      </table>
+      <div class="footnote">Teilmenge der 15 BANT-Fälle links: nur wo im Notiz-Text ein Pferd-Status erkennbar war. Nicht jeder BANT-Fall nennt einen Grund im Text, daher niedrigere Zahl – keine Diskrepanz, sondern zwei unterschiedliche Blickwinkel auf dieselben Fälle.</div>
+    </div>
+  </div>
+
+  <h2>Anrufversuche</h2>
+  <table>
+    <tr><th>Versuch-Nr.</th><th>Anzahl Calls</th></tr>
+    <tr><td>Versuch 1</td><td class="num">56</td></tr><tr><td>Versuch 2</td><td class="num">13</td></tr><tr><td>Versuch 3</td><td class="num">1</td></tr>
+  </table>
+
+</div>
+</body>
+</html>
